@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 // 📅 Date officielle d’ouverture
-const OPENING_DATE = new Date("2026-01-01T00:00:00");
+const OPENING_DATE = new Date("2026-01-12T00:00:00");
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
@@ -31,18 +31,51 @@ export default function Countdown() {
 
   if (!timeLeft) {
     return (
-      <p className="text-2xl font-bold text-green-400">
+      <p className="text-lg sm:text-xl md:text-2xl font-bold text-green-400 text-center">
         🎉 Le studio est officiellement ouvert !
       </p>
     );
   }
 
   return (
-    <div className="flex gap-6" style={{ backgroundColor:"#5d3771a3", padding:"20px" }}>
+    <div
+      className="
+        flex flex-wrap justify-center gap-4 sm:gap-6
+        bg-[#5d3771a3]
+        backdrop-blur-sm
+        rounded-2xl
+        px-4 py-5
+        sm:px-6 sm:py-6
+        md:px-8
+      "
+    >
       {Object.entries(timeLeft).map(([label, value]) => (
-        <div key={label} className="text-center">
-          <p className="text-4xl font-bold">{value}</p>
-          <p className="text-sm uppercase tracking-widest text-gray-400">
+        <div
+          key={label}
+          className="
+            min-w-[70px] sm:min-w-[90px]
+            text-center
+          "
+        >
+          <p
+            className="
+              font-bold
+              text-2xl
+              sm:text-3xl
+              md:text-4xl
+            "
+          >
+            {value}
+          </p>
+          <p
+            className="
+              text-[10px]
+              sm:text-xs
+              uppercase
+              tracking-widest
+              text-gray-300
+            "
+          >
             {label}
           </p>
         </div>

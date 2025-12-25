@@ -3,7 +3,7 @@ import Countdown from "@/components/Countdown";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen flex items-center justify-center text-white">
+    <main className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
 
       {/* Image de fond */}
       <Image
@@ -12,15 +12,13 @@ export default function Home() {
         fill
         priority
         className="object-cover"
-        // className="object-cover scale-105 blur-[1px]"
       />
-
 
       {/* Overlay noir */}
       <div className="absolute inset-0 bg-black/70" />
 
       {/* Contenu */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 max-w-4xl">
 
         {/* Logo */}
         <Image
@@ -28,13 +26,29 @@ export default function Home() {
           alt="Logo Studio"
           width={400}
           height={160}
-          className="mb-6"
+          className="
+            mb-6
+            w-48 sm:w-64 md:w-72 lg:w-96
+            h-auto
+          "
         />
 
-        <p className="text-gray-300 mb-10 text-center" style={{ fontSize: "30px" }}>
+        {/* Texte principal */}
+        <p
+          className="
+            text-gray-300
+            mb-8
+            text-base
+            sm:text-lg
+            md:text-xl
+            lg:text-2xl
+            leading-relaxed
+          "
+        >
           Notre studio ouvre très bientôt.<br />
           Restez connectés.<br /><br />
-          En attendant, suivez-nous sur Instagram pour rester informés :{" "}
+          En attendant, suivez-nous sur Instagram pour rester informés :
+          <br />
           <a
             href="https://instagram.com/moon_lagree"
             target="_blank"
@@ -45,9 +59,21 @@ export default function Home() {
           </a>
         </p>
 
-        <Countdown />
+        {/* Countdown */}
+        <div className="my-6 sm:my-8">
+          <Countdown />
+        </div>
 
-        <p className="mt-12 text-sm text-gray-500" style={{ fontSize: "20px" }}>
+        {/* Footer */}
+        <p
+          className="
+            mt-10
+            text-xs
+            sm:text-sm
+            md:text-base
+            text-gray-500
+          "
+        >
           © {new Date().getFullYear()} Moon Lagree Studio
         </p>
       </div>
